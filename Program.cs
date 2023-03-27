@@ -28,23 +28,42 @@ namespace tpmodul6_1302213016
             v9.IncreasePlayCount(566);
             v10.IncreasePlayCount(124);
 
+            try
+            {
+                SayaTubeUser user = new SayaTubeUser("Reza");
+                user.AddVideo(v1);
+                user.AddVideo(v2);
+                user.AddVideo(v3);
+                user.AddVideo(v4);
+                user.AddVideo(v5);
+                user.AddVideo(v6);
+                user.AddVideo(v7);
+                user.AddVideo(v8);
+                user.AddVideo(v9);
+                user.AddVideo(v10);
 
-            SayaTubeUser user = new SayaTubeUser("Reza");
-            user.AddVideo(v1);
-            user.AddVideo(v2);
-            user.AddVideo(v3);
-            user.AddVideo(v4);
-            user.AddVideo(v5);
-            user.AddVideo(v6);
-            user.AddVideo(v7);
-            user.AddVideo(v8);
-            user.AddVideo(v9);
-            user.AddVideo(v10);
+                user.PrintAllVideoPlaycount();
+                int x = user.GetTotalVideoPlayCount();
+                Console.WriteLine("Total Video PLaycount: " + x);
 
-            user.PrintAllVideoPlaycount();
-            int x = user.GetTotalVideoPlayCount();
-            Console.WriteLine("Total Video PLaycount: "+x);
+                Console.WriteLine("\n\nPENGUJIAN KONDISI\n");
 
+                SayaTubeVideo video1 = new SayaTubeVideo(null);
+                SayaTubeVideo video2 = new SayaTubeVideo("Video tes playcount");
+                for (int i = 0; i < 100; i++)
+                {
+                    video2.IncreasePlayCount(9999999);
+                }
+
+                SayaTubeUser user2 = new SayaTubeUser(null);
+                user2.AddVideo(null);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            
 
         }
     }

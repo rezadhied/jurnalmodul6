@@ -15,7 +15,9 @@ namespace modul6_1302213016
 
         public SayaTubeVideo(string title)
         {
-            
+            Debug.Assert(title != null && title.Length <= 200,
+               "Judul video harus memiliki panjang maksimal 200 karakter dan tidak berupa null");
+
             this.id = new Random().Next(00001, 99999);
             this.title = title;
             this.playCount = 0;
@@ -23,8 +25,10 @@ namespace modul6_1302213016
 
         public void IncreasePlayCount(int count)
         {
+            Debug.Assert(count <= 25000000 && count >= 0 );
             this.playCount += count;
-            
+           
+
         }
 
         public void PrintVideoDetails()
